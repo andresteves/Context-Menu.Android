@@ -172,6 +172,7 @@ public class ContextMenuDialogFragment extends DialogFragment implements OnItemC
     @Override
     public void onClick(View v) {
         if (mItemClickListener != null) {
+            mItemClickListener.onMenuItemClick(v, mWrapperText.indexOfChild(v)); // Text clickable
             mItemClickListener.onMenuItemClick(v, mWrapperButtons.indexOfChild(v));
         }
         close();
