@@ -198,7 +198,16 @@ public class MenuAdapter {
     private void viewClicked(View v) {
         if (mIsMenuOpen && !mIsAnimationRun) {
             mClickedView = v;
-            int childIndex = mMenuWrapper.indexOfChild(v);
+            int childIndex = 0;
+
+            if (v instanceof TextView)
+            {
+                childIndex = mTextWrapper.indexOfChild(v);
+            }else
+            {
+                childIndex = mMenuWrapper.indexOfChild(v);
+            }
+            
             if (childIndex == -1) {
                 return;
             }
